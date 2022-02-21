@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Sprites/Portal.gd" type="Script" id=1]
+[ext_resource path="res://Sprites/prop_portal.png" type="Texture" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 37, 37 )
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 27, 27 )
+shape = SubResource( 1 )
+
+[node name="PropPortal" type="Sprite" parent="."]
+position = Vector2( 48, 48 )
+scale = Vector2( 0.436869, 0.45202 )
+texture = ExtResource( 2 )
+
+[connection signal="body_entered" from="." to="." method="_on_Area2D_body_entered"]
